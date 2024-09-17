@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://fds.vn/#/web/guest/lien_he -->
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Lenus Việt Nam</title>
+    <!--<base href="/">-->
+    <base href="." />
+    <style cssr-id="n-loading-bar">
+      .n-loading-bar-container {
+        z-index: 5999;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+      }
+
+      .n-loading-bar-container.fade-in-transition-enter-active {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      .n-loading-bar-container.fade-in-transition-leave-active {
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      .n-loading-bar-container.fade-in-transition-enter-from,
+      .n-loading-bar-container.fade-in-transition-leave-to {
+        opacity: 0;
+      }
+
+      .n-loading-bar-container.fade-in-transition-leave-from,
+      .n-loading-bar-container.fade-in-transition-enter-to {
+        opacity: 1;
+      }
+
+      .n-loading-bar-container .n-loading-bar {
+        width: 100%;
+        transition: max-width 4s linear, background 0.2s linear;
+        height: var(--n-height);
+      }
+
+      .n-loading-bar-container .n-loading-bar.n-loading-bar--starting {
+        background: var(--n-color-loading);
+      }
+
+      .n-loading-bar-container .n-loading-bar.n-loading-bar--finishing {
+        background: var(--n-color-loading);
+        transition: max-width 0.2s linear, background 0.2s linear;
+      }
+
+      .n-loading-bar-container .n-loading-bar.n-loading-bar--error {
+        background: var(--n-color-error);
+        transition: max-width 0.2s linear, background 0.2s linear;
+      }
+    </style>
+    <style cssr-id="n-global">
+      body {
+        margin: 0;
+        font-size: 14px;
+        font-family: v-sans, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+          "Segoe UI Symbol";
+        line-height: 1.6;
+        -webkit-text-size-adjust: 100%;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body input {
+        font-family: inherit;
+        font-size: inherit;
+      }
+    </style>
+    <style cssr-id="n-notification">
+      .n-notification-container {
+        z-index: 4000;
+        position: fixed;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+      }
+
+      .n-notification-container > .n-scrollbar {
+        width: initial;
+        overflow: visible;
+        height: -moz-fit-content !important;
+        height: fit-content !important;
+        max-height: 100vh !important;
+      }
+
+      .n-notification-container > .n-scrollbar > .n-scrollbar-container {
+        height: -moz-fit-content !important;
+        height: fit-content !important;
+        max-height: 100vh !important;
+      }
+
+      .n-notification-container
+        > .n-scrollbar
+        > .n-scrollbar-container
+        .n-scrollbar-content {
+        padding-top: 12px;
+        padding-bottom: 33px;
+      }
+
+      .n-notification-container.n-notification-container--top-right
+        .n-notification,
+      .n-notification-container.n-notification-container--bottom-right
+        .n-notification {
+        margin-left: 28px;
+        margin-right: 16px;
+      }
+
+      .n-notification-container.n-notification-container--top-left
+        .n-notification,
+      .n-notification-container.n-notification-container--bottom-left
+        .n-notification {
+        margin-left: 16px;
+        margin-right: 28px;
+      }
+
+      .n-notification-container.n-notification-container--top-right {
+        right: 0;
+        top: 12px;
+      }
+
+      .n-notification-container.n-notification-container--top-right
+        .n-notification.notification-transition-enter-from,
+      .n-notification-container.n-notification-container--top-right
+        .n-notification.notification-transition-leave-to {
+        transform: translate(calc(100%), 0);
+      }
+
+      .n-notification-container.n-notification-container--top-right
+        .n-notification.notification-transition-leave-from,
+      .n-notification-container.n-notification-container--top-right
+        .n-notification.notification-transition-enter-to {
+        transform: translate(0, 0);
+      }
+
+      .n-notification-container.n-notification-container--top-left {
+        left: 0;
+        top: 12px;
+      }
+
+      .n-notification-container.n-notification-container--top-left
+        .n-notification.notification-transition-enter-from,
+      .n-notification-container.n-notification-container--top-left
+        .n-notification.notification-transition-leave-to {
+        transform: translate(calc(-100%), 0);
+      }
+
+      .n-notification-container.n-notification-container--top-left
+        .n-notification.notification-transition-leave-from,
+      .n-notification-container.n-notification-container--top-left
+        .n-notification.notification-transition-enter-to {
+        transform: translate(0, 0);
+      }
+
+      .n-notification-container.n-notification-container--bottom-right {
+        right: 0;
+        bottom: 12px;
+      }
+
+      .n-notification-container.n-notification-container--bottom-right
+        .n-notification.notification-transition-enter-from,
+      .n-notification-container.n-notification-container--bottom-right
+        .n-notification.notification-transition-leave-to {
+        transform: translate(calc(100%), 0);
+      }
+
+      .n-notification-container.n-notification-container--bottom-right
+        .n-notification.notification-transition-leave-from,
+      .n-notification-container.n-notification-container--bottom-right
+        .n-notification.notification-transition-enter-to {
+        transform: translate(0, 0);
+      }
+
+      .n-notification-container.n-notification-container--bottom-left {
+        left: 0;
+        bottom: 12px;
+      }
+
+      .n-notification-container.n-notification-container--bottom-left
+        .n-notification.notification-transition-enter-from,
+      .n-notification-container.n-notification-container--bottom-left
+        .n-notification.notification-transition-leave-to {
+        transform: translate(calc(-100%), 0);
+      }
+
+      .n-notification-container.n-notification-container--bottom-left
+        .n-notification.notification-transition-leave-from,
+      .n-notification-container.n-notification-container--bottom-left
+        .n-notification.notification-transition-enter-to {
+        transform: translate(0, 0);
+      }
+
+      .n-notification-container.n-notification-container--scrollable.n-notification-container--top-right {
+        top: 0;
+      }
+
+      .n-notification-container.n-notification-container--scrollable.n-notification-container--top-left {
+        top: 0;
+      }
+
+      .n-notification-container.n-notification-container--scrollable.n-notification-container--bottom-right {
+        bottom: 0;
+      }
+
+      .n-notification-container.n-notification-container--scrollable.n-notification-container--bottom-left {
+        bottom: 0;
+      }
+
+      .n-notification-container
+        .n-notification.notification-transition-enter-from,
+      .n-notification-container
+        .n-notification.notification-transition-leave-to {
+        opacity: 0;
+        margin-bottom: 0 !important;
+      }
+
+      .n-notification-container
+        .n-notification.notification-transition-leave-from,
+      .n-notification-container
+        .n-notification.notification-transition-enter-to {
+        opacity: 1;
+      }
+
+      .n-notification-container
+        .n-notification.notification-transition-leave-active {
+        transition: background-color 0.3s var(--n-bezier),
+          color 0.3s var(--n-bezier), opacity 0.3s var(--n-bezier),
+          transform 0.3s var(--n-bezier-ease-in),
+          max-height 0.3s var(--n-bezier), margin-bottom 0.3s linear,
+          box-shadow 0.3s var(--n-bezier);
+      }
+
+      .n-notification-container .n-notification {
+        background-color: var(--n-color);
+        color: var(--n-text-color);
+        transition: background-color 0.3s var(--n-bezier),
+          color 0.3s var(--n-bezier), opacity 0.3s var(--n-bezier),
+          transform 0.3s var(--n-bezier-ease-out),
+          max-height 0.3s var(--n-bezier), margin-bottom 0.3s linear,
+          box-shadow 0.3s var(--n-bezier);
+        font-family: inherit;
+        font-size: var(--n-font-size);
+        font-weight: 400;
+        position: relative;
+        display: flex;
+        overflow: hidden;
+        flex-shrink: 0;
+        margin-bottom: 12px;
+        padding-left: var(--n-padding-left);
+        padding-right: var(--n-padding-right);
+        width: var(--n-width);
+        border-radius: var(--n-border-radius);
+        box-shadow: var(--n-box-shadow);
+        box-sizing: border-box;
+        opacity: 1;
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification__avatar
+        .n-icon {
+        color: var(--n-icon-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification__avatar
+        .n-base-icon {
+        color: var(--n-icon-color);
+      }
+
+      .n-notification-container
+        .n-notification.n-notification--show-avatar
+        .n-notification-main {
+        margin-left: 40px;
+        width: calc(100% - 40px);
+      }
+
+      .n-notification-container
+        .n-notification.n-notification--closable
+        .n-notification-main
+        > *:first-child {
+        padding-right: 20px;
+      }
+
+      .n-notification-container
+        .n-notification.n-notification--closable
+        .n-notification__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: var(--n-close-margin);
+        font-size: var(--n-close-size);
+        transition: color 0.3s var(--n-bezier);
+      }
+
+      .n-notification-container .n-notification .n-notification__avatar {
+        position: absolute;
+        top: var(--n-padding-top);
+        left: var(--n-padding-left);
+        width: 28px;
+        height: 28px;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification__avatar
+        .n-icon {
+        transition: color 0.3s var(--n-bezier);
+      }
+
+      .n-notification-container .n-notification .n-notification-main {
+        padding-top: var(--n-padding-top);
+        padding-bottom: var(--n-padding-bottom);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+        width: calc(100% - 8px);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 12px;
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main-footer
+        .n-notification-main-footer__meta {
+        font-size: 12px;
+        transition: color 0.3s var(--n-bezier-ease-out);
+        color: var(--n-description-text-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main-footer
+        .n-notification-main-footer__action {
+        cursor: pointer;
+        transition: color 0.3s var(--n-bezier-ease-out);
+        color: var(--n-action-text-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main__header {
+        font-weight: var(--n-title-font-weight);
+        font-size: 16px;
+        transition: color 0.3s var(--n-bezier-ease-out);
+        color: var(--n-title-text-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main__description {
+        margin-top: 8px;
+        font-size: 12px;
+        transition: color 0.3s var(--n-bezier-ease-out);
+        color: var(--n-description-text-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main__content {
+        line-height: var(--n-line-height);
+        margin: 12px 0 0 0;
+        font-family: inherit;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        transition: color 0.3s var(--n-bezier-ease-out);
+        color: var(--n-text-color);
+      }
+
+      .n-notification-container
+        .n-notification
+        .n-notification-main
+        .n-notification-main__content:first-child {
+        margin: 0;
+      }
+    </style>
+    <link rel="icon" href="F:\xampp\htdocs\lenus_page\html\public_html\Công ty Cổ phần Lenus_files\Logo_-_Avatar-removebg-preview (5).png" />
+    <meta name="color-scheme" content="light" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta name="theme-color" content="#03672e" />
+
+    <link href="./Công ty Cổ phần Lenus_files/app.min.css" rel="stylesheet" />
+    <script
+      defer=""
+      src="./Công ty Cổ phần Lenus_files/postinstall.11.js.download"
+      rel="preload"
+    ></script>
+
+    <script src="./Công ty Cổ phần Lenus_files/nav.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("uiZH_WOCxhtngpL2D");
+      })();
+    </script>
+    <script src="email.js"></script>
+    <!-- PWA: Apple Touch Icon, and Service Worker registration. -->
+    <!-- Vite Plugin PWA will add the Web App Manifest during build
+    <link rel="apple-touch-icon" href="/images/pwa/icon-192x192.png">
+     -->
+
+    <script
+      type="module"
+      crossorigin=""
+      src="./Công ty Cổ phần Lenus_files/index.fd0aa771.js.download"
+    ></script>
+    <link rel="modulepreload" href="https://fds.vn/assets/vendor.468c1fc1.js" />
+    <link rel="manifest" href="https://fds.vn/manifest.webmanifest" />
+    
+  </head>
+
+  <body>
+    <div id="app" data-v-app="" class="signed-out">
+      <div class="lien_he">
+        <span></span>
+        <div class="vuejx__header" style="min-height: auto">
+          <div>
+            <style type="text/css">
+              @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+
+              .lien_he #body___container {
+                padding: 1rem;
+              }
+
+              body .lien_he .vuejx__header + div.hd__screen,
+              body .lien_he .vuejx__header + div > .hd__screen {
+                min-height: calc(100vh - 160px) !important;
+              }
+
+              .lien_he .footer-normal,
+              .footer-contact {
+                display: none;
+              }
+
+              .lien_he .footer-contact {
+                display: block;
+              }
+
+              .contact-wrapper .contact-content {
+                border: 1px solid #0081fc;
+              }
+
+              .contact-wrapper .left-side {
+                flex-grow: 1;
+              }
+
+              .contact-wrapper.right-side{
+                flex-grow: 1;
+                position: relative;
+                flex-shrink: 0;
+              }
+
+              .contact-wrapper .map-wrapper {
+                position: relative;
+                flex-shrink: 0;
+              }
+
+              .contact-wrapper .map-wrapper iframe {
+                width: 500px !important;
+              }
+
+              footer svg,
+              .contact-wrapper svg {
+                margin-top: 4px;
+              }
+
+              .toggle-mobile {
+                display: block;
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+                z-index: 5;
+              }
+
+              .box-with-title label {
+                top: 0;
+                left: 50%;
+                transform: translate(-50%, -50%);
+              }
+
+              .box-with-title label:before {
+                top: 23px;
+                height: 2px;
+              }
+
+              .giatricotloi {
+                grid-column-start: 3;
+              }
+
+              .mBody.san_pham > section {
+                padding: 0 1rem;
+              }
+
+              .filtered-img {
+                filter: brightness(0) saturate(100%) invert(18%) sepia(96%)
+                  saturate(2628%) hue-rotate(198deg) brightness(83%)
+                  contrast(93%);
+              }
+
+              .product-2 .col-span-1 {
+                margin: 1rem 0 0;
+              }
+
+              .product-2 .col-span-1:nth-child(n + 4) {
+                margin: 0;
+              }
+
+              .product-2 .linebreak {
+                margin-top: 1rem;
+              }
+
+              body .navigation-auto,
+              body .navigation-manual {
+                left: 50%;
+                transform: translateX(-50%);
+                top: auto;
+                bottom: 1rem;
+              }
+
+              .label-title:before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 100%;
+                width: 0;
+                height: 0;
+                border-bottom: 38px solid #0081fc;
+                border-right: 28px solid transparent;
+              }
+
+              .h2 {
+                margin-top: 5rem;
+              }
+
+              
+
+              .left-side, 
+              .right-side {
+                flex-grow: 1; /* Cho phép mỗi phần chiếm đều không gian còn lại */
+                flex-basis: 0; /* Đảm bảo cả hai phần đều có tỷ lệ 50-50 */
+              }
+
+              .input-group {
+                display: flex;
+                justify-content: space-between;
+                gap: 10px;
+                width: 100%;
+              }
+
+              .input-box {
+                display: flex;
+                flex-direction: column;
+                width: 48%;
+              }
+
+              .input-group-2 {
+                display: flex;
+                flex-direction: column;
+              }
+
+              textarea {
+                width: 100%;
+                padding: 10px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+                margin-bottom: 15px;
+              }
+
+              input[type="text"],
+              input[type="email"],
+              input[type="number"] {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border-radius: 5px;
+                border: 1px solid #ccc;
+              }
+
+              .btn {
+                padding: 10px 15px;
+                margin-bottom: 10px;
+                background-color: #1d4ed8;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100px;
+                align-self: center;
+              }
+              
+              @media screen and (max-width: 1366px) {
+                .giatricotloi {
+                  margin-top: 1rem;
+                }
+
+                .box-with-title label:before {
+                  top: 16px;
+                }
+              }
+
+              @media screen and (max-width: 1280px) {
+                .gioi_thieu .first-row .absolute {
+                  width: 80%;
+                }
+              }
+
+              @media screen and (max-width: 1024px) {
+                .contact-content {
+                  width: 100%;
+                }
+
+                #app > div:not(.trang_chu) .nav-button {
+                  border-color: #085097;
+                  margin-left: 1rem;
+                }
+
+                #app > div:not(.trang_chu) .nav-button svg path {
+                  fill: #085097;
+                }
+
+                body .trang_chu header.hd__screen #navToggle .text-white {
+                  color: #006cd4;
+                }
+
+                .gioi_thieu .first-row .absolute .uppercase {
+                  display: none;
+                }
+              }
+
+              @media screen and (min-width: 768px) and (max-width: 1024px) {
+                .first-row .absolute {
+                  display: block;
+                }
+
+                .product-1_1 > div {
+                  padding: 0 1rem;
+                }
+
+                .product-1_1 > div > img {
+                  margin-top: 1rem;
+                }
+
+                .product-1_1 br {
+                  display: none;
+                }
+
+                .product-1_1 .grid-cols-3 {
+                  grid-template-columns: repeat(2, minmax(0, 1fr));
+                  margin: 2rem 0 0;
+                  gap: 1rem;
+                }
+
+                .product-1_1 .grid-cols-3 .col-span-1:nth-child(n + 3) {
+                  margin-top: 1rem;
+                }
+
+                .product-1_1 .grid-cols-4 {
+                  grid-template-columns: repeat(2, minmax(0, 1fr));
+                  margin: 0 0 0;
+                  gap: 1rem;
+                }
+
+                .product-2 .grid-cols-3,
+                .product-3 .grid-cols-3 {
+                  grid-template-columns: repeat(2, minmax(0, 1fr));
+                  margin: 0 0 0;
+                  gap: 1rem;
+                }
+
+                .product-2 > div {
+                  padding: 0 1rem;
+                }
+
+                .product-2 .col-span-1:nth-child(n + 3),
+                .product-3 .col-span-1:nth-child(n + 3) {
+                  margin: 0;
+                }
+
+                .product-3 > div {
+                  padding: 0 1rem 20rem;
+                }
+              }
+
+              @media screen and (max-width: 768px) {
+                .contact-content {
+                  flex-wrap: wrap;
+                }
+
+                form{
+                    flex-direction: column;
+                }
+                
+                .input-group {
+                  flex-direction: column; /* Hiển thị theo hàng dọc */
+                  gap: 0;
+                }
+                .input-box {
+                  width: 100%; /* Chiếm toàn bộ chiều rộng */
+                  margin-bottom: 15px;
+                }
+
+                .input-box input {
+                  margin-bottom: 10px; /* Thêm khoảng cách giữa các ô */
+                }
+
+                .input-group-2 {
+                  width: 100%;
+                }
+                .left-side, 
+                .right-side {
+                  flex-basis: 100%; /* 100% chiều rộng trên màn hình nhỏ */
+                  flex-grow: unset; /* Không cần sử dụng flex-grow */
+                }
+                .contact-wrapper .map-wrapper,
+                .contact-wrapper .map-wrapper iframe {
+                  width: 100% !important;
+                }
+
+                body .lien_he .vuejx__header + div.hd__screen,
+                body .lien_he .vuejx__header + div > .hd__screen {
+                  min-height: calc(100vh - 147px) !important;
+                }
+
+                .lien_he #body___container > section {
+                  padding-bottom: 0;
+                }
+
+                .lien_he .h2 {
+                  margin: 1rem auto;
+                }
+
+                .grid-cols-12 {
+                  margin-top: 3rem;
+                }
+
+                .grid-cols-12 > div {
+                  grid-column: span 12;
+                  margin-top: 1rem;
+                  padding: 1.5rem 1rem 1rem;
+                  text-align: justify;
+                }
+
+                .grid-cols-12 > div:first-child {
+                  margin-top: 0;
+                }
+
+                .first-row {
+                  display: none;
+                }
+
+                .vuejx__header {
+                  box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
+                }
+
+                .box-with-title label {
+                  font-size: 20px;
+                  white-space: nowrap;
+                }
+
+                .box-with-title label:before {
+                  top: 15px;
+                  height: 3px;
+                }
+
+                body #body___container {
+                  padding-bottom: 0;
+                }
+
+                body .trang_chu #body___container {
+                  padding-bottom: 2rem;
+                }
+              }
+
+              @media screen and (max-width: 767px) {
+                .product-1_1 > div {
+                  padding: 0 1rem;
+                }
+
+                .product-1_1 > div > img {
+                  margin-top: 1rem;
+                }
+
+                .product-1_1 br {
+                  display: none;
+                }
+
+                .product-1_1 .grid-cols-3 {
+                  grid-template-columns: repeat(1, minmax(0, 1fr));
+                  margin: 2rem 0 0;
+                  gap: 1rem;
+                }
+
+                .product-1_1 .grid-cols-3 .col-span-1:nth-child(n + 3) {
+                  margin-top: 1rem;
+                }
+
+                .product-1_1 .grid-cols-4 {
+                  grid-template-columns: repeat(2, minmax(0, 1fr));
+                  margin: 0 0 0;
+                  gap: 1rem;
+                }
+
+                .product-2 .grid-cols-3,
+                .product-3 .grid-cols-3 {
+                  grid-template-columns: repeat(1, minmax(0, 1fr));
+                  margin: 0 0 0;
+                  gap: 1rem;
+                }
+
+                .product-2 > div {
+                  padding: 0 1rem;
+                }
+
+                .product-2 .col-span-1:nth-child(n + 3),
+                .product-3 .col-span-1:nth-child(n + 3) {
+                  margin: 0;
+                }
+
+                .product-3 > div {
+                  padding: 0 1rem 20rem;
+                }
+
+                .side-nav {
+                  margin-bottom: 1rem;
+                }
+
+              }
+            </style>
+          </div>
+          <div
+            class="vuejx__header"
+            classcss="hd__screen"
+            fixed="false"
+            dark="false"
+            color="white"
+          >
+            <header class="hd__screen z-10 top-0 w-full">
+              <div>
+                <div class="flex items-center ">
+                  <a href="http://172.16.20.108/lenus_page/html/public_html/homePage.html" class="flex items-center"><img
+                      src="Công ty Cổ phần Lenus_files\Logo_-_Avatar-removebg-preview (5).png"
+                      class="img-responsive" alt="fds" /><label class="ml-3 uppercase leading-4 text-white"><span
+                        class="block font-bold">CÔNG TY CỔ PHẦN PHÁT LENUS VIỆT NAM</span>
+                      LENUS VIET NAM JOINT STOCK COMPANY
+                    </label></a>
+                  <div class="ml-auto relative" id="myNav">
+                    <div class="nav-button">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 18H21V16H3V18ZM3 13H21V11H3V13ZM3 6V8H21V6H3Z" fill="black"></path>
+                      </svg>
+                    </div>
+                    <ul id="navToggle" class="flex navbar">
+                      <li>
+                        <a href="http://172.16.20.108/lenus_page/html/public_html/homePage.html"
+                          class="border-transparent block text-white uppercase px-6 py-2 rounded-full border">Trang chủ</a>
+                      </li>
+                      <li>
+                        <a href="http://172.16.20.108/lenus_page/html/public_html/intro.html"
+                          class="border-transparent block text-white uppercase px-6 py-2 rounded-full border hover:border-white">Giới
+                          thiệu</a>
+                      </li>
+                      <li>
+                        <a href="http://172.16.20.108/lenus_page/html/public_html/product.html"
+                          class="border-transparent block text-white uppercase px-6 py-2 rounded-full border hover:border-white">Sản
+                          phẩm</a>
+                      </li>
+                      <li>
+                        <a href="http://172.16.20.108/lenus_page/html/public_html/news.html"
+                          class="border-transparent block text-white uppercase px-6 py-2 rounded-full border hover:border-white">Tin tức
+                          & sự kiện</a>
+                      </li>
+                      <li>
+                        <a href="http://172.16.20.108/lenus_page/html/public_html/contact.html"
+                          class="border-white font-bold block text-white uppercase px-6 py-2 rounded-full border hover:border-white">Liên
+                          hệ</a>
+                      </li>
+                    </ul>
+                    <div>
+                      <div class="hd__screen">
+                        <div class="top-bar">
+                          <div class="left" tabindex="0">
+                            <div class="item active" tabindex="0">
+                              <button aria-label="btn" class="label">
+                                Trang chủ
+                                <!----></button><!---->
+                            </div>
+                            <div class="item" tabindex="0">
+                              <button aria-label="btn" class="label">
+                                QLVT
+                                <!----></button><!---->
+                            </div>
+                            <div class="item" tabindex="0">
+                              <button aria-label="btn" class="label">
+                                Giới thiệu
+                                <!----></button><!---->
+                            </div>
+                            <div class="item" tabindex="0">
+                              <button aria-label="btn" class="label">
+                                Sản phẩm
+                                <!----></button><!---->
+                            </div>
+                            <div class="item" tabindex="0">
+                              <button aria-label="btn" class="label">
+                                Liên hệ
+                                <!----></button><!---->
+                            </div>
+                          </div>
+                          <div class="left" tabindex="0">
+                            <div class="item">
+                              <button aria-label="btn" class="label">
+                                <i class="mdi mdi-power-settings-new"></i>
+                                <span>Đăng nhập</span></button><!---->
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </header>
+          </div>
+        </div>
+        <div id="body___container" class="hd__screen">
+          <section class="hd__screen flex items-center justify-center pb-16">
+            <div>
+              <div class="contact-wrapper px-4">
+                <h2
+                  class="h2 uppercase font-black text-blue-700 text-center mb-8"
+                >
+                  Liên hệ
+                </h2>
+                <div
+                  class="contact-content flex items-center border xs12 sm10 mx-auto rounded-lg bg-white"
+                >
+                  <div class="p-4 left-side">
+                    <div class="uppercase text-blue-700 font-bold my-3 contact-title">
+                      VĂN PHÒNG ĐẠI DIỆN
+                    </div>
+                    <div>
+                      <p class="flex items-start my-2">
+                        <svg 
+                          class="flex-shrink-0"
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.99992 1.3335C5.41992 1.3335 3.33325 3.42016 3.33325 6.00016C3.33325 9.50016 7.99992 14.6668 7.99992 14.6668C7.99992 14.6668 12.6666 9.50016 12.6666 6.00016C12.6666 3.42016 10.5799 1.3335 7.99992 1.3335ZM4.66659 6.00016C4.66659 4.16016 6.15992 2.66683 7.99992 2.66683C9.83992 2.66683 11.3333 4.16016 11.3333 6.00016C11.3333 7.92016 9.41325 10.7935 7.99992 12.5868C6.61325 10.8068 4.66659 7.90016 4.66659 6.00016Z"
+                            fill="black"
+                          ></path>
+                          <path
+                            d="M7.99992 7.66683C8.92039 7.66683 9.66658 6.92064 9.66658 6.00016C9.66658 5.07969 8.92039 4.3335 7.99992 4.3335C7.07944 4.3335 6.33325 5.07969 6.33325 6.00016C6.33325 6.92064 7.07944 7.66683 7.99992 7.66683Z"
+                            fill="black"
+                          ></path></svg><span class="ml-2"
+                          >Tòa nhà 319 Bộ Quốc Phòng - Số 63 đường Lê Văn Lương, Phường Trung Hòa, Quận Cầu Giấy, Thành phố Hà Nội</span
+                        >
+                      </p>
+                      <p class="flex items-start my-2">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M10 8H11.3333C11.3333 6.16 9.84 4.66667 8 4.66667V6C9.10667 6 10 6.89333 10 8ZM12.6667 8H14C14 4.68667 11.3133 2 8 2V3.33333C10.58 3.33333 12.6667 5.42 12.6667 8ZM13.3333 10.3333C12.5 10.3333 11.7 10.2 10.9533 9.95333C10.8867 9.93333 10.8133 9.92 10.7467 9.92C10.5733 9.92 10.4067 9.98667 10.2733 10.1133L8.80667 11.58C6.92 10.62 5.37333 9.08 4.41333 7.18667L5.88 5.71333C6.06667 5.54 6.12 5.28 6.04667 5.04667C5.8 4.3 5.66667 3.5 5.66667 2.66667C5.66667 2.3 5.36667 2 5 2H2.66667C2.3 2 2 2.3 2 2.66667C2 8.92667 7.07333 14 13.3333 14C13.7 14 14 13.7 14 13.3333V11C14 10.6333 13.7 10.3333 13.3333 10.3333ZM3.35333 3.33333H4.35333C4.4 3.92 4.5 4.5 4.65333 5.05333L3.85333 5.86C3.58667 5.05333 3.41333 4.21333 3.35333 3.33333ZM12.6667 12.6467C11.7867 12.5867 10.9333 12.4133 10.1333 12.14L10.9333 11.34C11.5 11.5 12.08 11.6 12.6667 11.64V12.6467Z"
+                            fill="black"
+                          ></path></svg><span class="ml-2">(+84) 912 316 923</span>
+                      </p>
+
+                      <p class="flex items-start my-2">
+                        <svg
+                          width="16"
+                          height="16"
+                          viewBox="0 0 16 16"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M13.3333 2.6665H2.66668C1.93334 2.6665 1.34001 3.2665 1.34001 3.99984L1.33334 11.9998C1.33334 12.7332 1.93334 13.3332 2.66668 13.3332H13.3333C14.0667 13.3332 14.6667 12.7332 14.6667 11.9998V3.99984C14.6667 3.2665 14.0667 2.6665 13.3333 2.6665ZM13.3333 11.9998H2.66668V5.33317L8.00001 8.6665L13.3333 5.33317V11.9998ZM8.00001 7.33317L2.66668 3.99984H13.3333L8.00001 7.33317Z"
+                            fill="black"
+                          ></path></svg><span class="ml-2">info@lenusvn.com</span>
+                      </p>
+                    </div>
+                    <div class="uppercase text-blue-700 font-bold my-3 mt-10">
+                      TRỤ SỞ CHÍNH
+                    </div>
+                    <div class="my-2">
+                      111 Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội
+                    </div>
+                  </div>
+                  <div class="right-side flex" style="position: relative">
+                    <div class="ml-auto mr-auto" >
+                      <div class="uppercase text-blue-700 font-bold my-2 ml-auto text-center">
+                        Gửi email cho chúng tôi: 
+                      </div>
+                      <form action="" >
+                        <div class="input-group">
+                          <div class="input-box">
+                            <input type="text" id="from_name" name="from_name" placeholder="Họ và Tên">
+                            <input type="email" id="from_email" name="from_email" placeholder="Email">
+                          </div>
+                          <div class="input-box">
+                            <input type="number" id="from_number" name="from_number" placeholder="Số điện thoại">
+                            <input type="text" id="from_subject" name="from_subject" placeholder="Chủ đề">
+                          </div>
+                        </div>
+                        <div class="input-group-2">
+                          <textarea name="message" id="message" cols="30" rows="10" placeholder="Lời nhắn"></textarea>
+                          <button type="button" class="btn" onclick="sendEmail()">Gửi Email</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+        <div class="">
+        <footer class="hd__screen relative footer-normal">
+          <div bis_skin_checked="1">
+            <div class="p-4 text-white" bis_skin_checked="1">
+              <div class="uppercase leading-6 font-black">
+                VĂN PHÒNG ĐẠI DIỆN
+              </div>
+              <div class="contact-info">
+                <p class="flex items-start my-2">
+                  <svg class="flex-shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M7.99992 1.3335C5.41992 1.3335 3.33325 3.42016 3.33325 6.00016C3.33325 9.50016 7.99992 14.6668 7.99992 14.6668C7.99992 14.6668 12.6666 9.50016 12.6666 6.00016C12.6666 3.42016 10.5799 1.3335 7.99992 1.3335ZM4.66659 6.00016C4.66659 4.16016 6.15992 2.66683 7.99992 2.66683C9.83992 2.66683 11.3333 4.16016 11.3333 6.00016C11.3333 7.92016 9.41325 10.7935 7.99992 12.5868C6.61325 10.8068 4.66659 7.90016 4.66659 6.00016Z"
+                      fill="white"></path>
+                    <path
+                      d="M7.99992 7.66683C8.92039 7.66683 9.66658 6.92064 9.66658 6.00016C9.66658 5.07969 8.92039 4.3335 7.99992 4.3335C7.07944 4.3335 6.33325 5.07969 6.33325 6.00016C6.33325 6.92064 7.07944 7.66683 7.99992 7.66683Z"
+                      fill="white"></path>
+                  </svg><span class="ml-2"> Tòa nhà 319 Bộ Quốc Phòng - Số 63 đường Lê Văn Lương, Phường Trung Hòa, Quận Cầu
+                    Giấy, Thành phố Hà Nội</span>
+                </p>
+                <p class="flex items-start my-2">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M10 8H11.3333C11.3333 6.16 9.84 4.66667 8 4.66667V6C9.10667 6 10 6.89333 10 8ZM12.6667 8H14C14 4.68667 11.3133 2 8 2V3.33333C10.58 3.33333 12.6667 5.42 12.6667 8ZM13.3333 10.3333C12.5 10.3333 11.7 10.2 10.9533 9.95333C10.8867 9.93333 10.8133 9.92 10.7467 9.92C10.5733 9.92 10.4067 9.98667 10.2733 10.1133L8.80667 11.58C6.92 10.62 5.37333 9.08 4.41333 7.18667L5.88 5.71333C6.06667 5.54 6.12 5.28 6.04667 5.04667C5.8 4.3 5.66667 3.5 5.66667 2.66667C5.66667 2.3 5.36667 2 5 2H2.66667C2.3 2 2 2.3 2 2.66667C2 8.92667 7.07333 14 13.3333 14C13.7 14 14 13.7 14 13.3333V11C14 10.6333 13.7 10.3333 13.3333 10.3333ZM3.35333 3.33333H4.35333C4.4 3.92 4.5 4.5 4.65333 5.05333L3.85333 5.86C3.58667 5.05333 3.41333 4.21333 3.35333 3.33333ZM12.6667 12.6467C11.7867 12.5867 10.9333 12.4133 10.1333 12.14L10.9333 11.34C11.5 11.5 12.08 11.6 12.6667 11.64V12.6467Z"
+                      fill="white"></path>
+                  </svg><span class="ml-2">(+84) 912 316 923</span>
+                </p>
+                <p class="flex items-start my-2">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13.3333 2.6665H2.66668C1.93334 2.6665 1.34001 3.2665 1.34001 3.99984L1.33334 11.9998C1.33334 12.7332 1.93334 13.3332 2.66668 13.3332H13.3333C14.0667 13.3332 14.6667 12.7332 14.6667 11.9998V3.99984C14.6667 3.2665 14.0667 2.6665 13.3333 2.6665ZM13.3333 11.9998H2.66668V5.33317L8.00001 8.6665L13.3333 5.33317V11.9998ZM8.00001 7.33317L2.66668 3.99984H13.3333L8.00001 7.33317Z"
+                      fill="white"></path>
+                  </svg><span class="ml-2">info@lenusvn.com</span>
+                </p>
+              </div>
+              <div class="uppercase leading-6 font-black mt-4">
+                Trụ sở chính:
+              </div>
+              <div>
+                <p class="flex items-start my-2">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M7.99992 1.3335C5.41992 1.3335 3.33325 3.42016 3.33325 6.00016C3.33325 9.50016 7.99992 14.6668 7.99992 14.6668C7.99992 14.6668 12.6666 9.50016 12.6666 6.00016C12.6666 3.42016 10.5799 1.3335 7.99992 1.3335ZM4.66659 6.00016C4.66659 4.16016 6.15992 2.66683 7.99992 2.66683C9.83992 2.66683 11.3333 4.16016 11.3333 6.00016C11.3333 7.92016 9.41325 10.7935 7.99992 12.5868C6.61325 10.8068 4.66659 7.90016 4.66659 6.00016Z"
+                      fill="white"></path>
+                    <path
+                      d="M7.99992 7.66683C8.92039 7.66683 9.66658 6.92064 9.66658 6.00016C9.66658 5.07969 8.92039 4.3335 7.99992 4.3335C7.07944 4.3335 6.33325 5.07969 6.33325 6.00016C6.33325 6.92064 7.07944 7.66683 7.99992 7.66683Z"
+                      fill="white"></path>
+                  </svg><span class="ml-2">111 Láng Hạ, Phường Láng Hạ, Quận Đống Đa, Hà Nội</span>
+                </p>
+
+              </div>
+              <div class="copyright italic text-blue-700 mt-6">
+                Bản quyền thuộc về Công ty Cổ phần LENUS VIỆT NAM ©2024
+              </div>
+            </div>
+            <div class="map-wrapper">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.6152388578093!2d105.80348288885497!3d21.008055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad9f394fd473%3A0xa4c67fe72c49cac!2zVG_DoCBOaMOgIDMxOSBC4buZIFF14buRYyBQaMOybmc!5e0!3m2!1svi!2s!4v1726105921170!5m2!1svi!2s"
+                width="600" height="260" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+          </div>
+        </footer>
+          <footer class="hd__screen relative footer-contact">
+            <div class="mx-auto py-2 px-4 italic" style="max-width: 1366px; color: rgb(0, 129, 252)">
+              <div>
+                Bản quyền thuộc về Công ty Cổ phần LENUS VIỆT NAM ©2024
+              </div>
+            </div>
+          </footer
+        </div>
+        <span></span
+        ><!----><span
+        ></span>
+      </div>
+    </div>
+    
+    <!---->
+  </body>
+</html>
