@@ -9969,7 +9969,8 @@ body .top-content .content-title:after {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-bottom: 24px;
+  margin-bottom: 36px;
+  padding-bottom: 24px;
 }
 
 .article-image {
@@ -9978,6 +9979,7 @@ body .top-content .content-title:after {
 
 .article-content {
   margin-left: 16px;
+  margin-top: 10px;
 }
 
 /* Khi màn hình nhỏ hơn 768px */
