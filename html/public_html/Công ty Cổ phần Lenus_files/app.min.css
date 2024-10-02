@@ -1869,6 +1869,12 @@ body .fixed.absolute {
   opacity: 1;
   border-color: #fff;
 }
+
+.border-lenus,
+.hover\:border-lenus:hover {
+  opacity: 2;
+  border-color: #207c97;
+}
 .border-gray-100,
 .hover\:border-gray-100:hover {
   opacity: 1;
@@ -2372,6 +2378,10 @@ body .fixed.absolute {
 .focus\:border-white:focus {
   opacity: 1;
   border-color: #fff;
+}
+.focus\:border-lenus:focus {
+  opacity: 1;
+  border-color: #207c97;
 }
 .focus\:border-gray-100:focus {
   opacity: 1;
