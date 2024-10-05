@@ -1,4 +1,6 @@
+
 <!DOCTYPE html>
+
 <!-- saved from url=(0036)https://fds.vn/#/web/guest/trang_chu -->
 <html lang="en">
   <head>
@@ -402,8 +404,6 @@
     <meta name="color-scheme" content="light" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
     <meta name="theme-color" content="#03672e" />
 
     <link
@@ -412,6 +412,12 @@
     />
 
     <link rel="apple-touch-icon" href="/images/pwa/icon-192x192.png" />
+    <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        $("#includedContent").load("child_pages/header.html");
+      });
+    </script> -->
   </head>
   <body>
     <div id="app" data-v-app="" class="signed-out">
@@ -692,7 +698,14 @@
           >
 
             <!-- HEADER -->
-            <div id="header-container"></div>
+
+            <special-header> </special-header>
+            <!-- <div w3-include-html="child_pages/header.html"></div> -->
+            <!-- <link rel="import" href="./child_pages/header.html"> -->
+            <!-- <div id="includedContent"></div> -->
+            <!-- <div id="header-container"></div> -->
+            <!-- <iframe src="./child_pages/header2.html" id="header-iframe"></iframe> -->
+
           </div>
         </div>
         <div id="body___container" class="hd__screen">
@@ -986,7 +999,9 @@
           </div>
         </div>
         <div bis_skin_checked="1">
-          <footer class="hd__screen relative footer-normal">
+
+          <special-footer></special-footer>
+          <!-- <footer class="hd__screen relative footer-normal">
             <div bis_skin_checked="1">
               <div class="p-4 text-white" bis_skin_checked="1">
                 <div class="uppercase leading-6 font-black">
@@ -1078,7 +1093,7 @@
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.6152388578093!2d105.80348288885497!3d21.008055!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ad9f394fd473%3A0xa4c67fe72c49cac!2zVG_DoCBOaMOgIDMxOSBC4buZIFF14buRYyBQaMOybmc!5e0!3m2!1svi!2s!4v1726105921170!5m2!1svi!2s"
                   width="600"
-                  height="260"
+                  height="300"
                   style="border: 0"
                   allowfullscreen=""
                   loading="lazy"
@@ -1094,15 +1109,16 @@
             >
               <div>Bản quyền thuộc về Công ty Cổ phần LENUS VIỆT NAM ©2024</div>
             </div>
-          </footer>
+          </footer> -->
         </div>
         <span></span
         ><!----><span
         ></span>
       </div>
     </div>
-    <script src="./child_pages/Công ty Cổ phần Lenus_files/nav.js"></script>
-    <script src="./child_pages/headerload.js"></script>
+    <!-- <script src="./child_pages/Công ty Cổ phần Lenus_files/nav.js"></script>
+    <script src="./child_pages/headerload.js"></script> -->
+    <script src="./child_pages/special_header.js"></script>
     <!---->
   </body>
 </html>

@@ -1,13 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./Công ty Cổ phần Lenus_files/app.min.css" rel="stylesheet" />
+    <style type="text/css">
+        @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400;1,500;1,700;1,900&display=swap");
+    
+        .lien_he #body___container {
+            padding: 1rem;
+        }
+    
+        body .lien_he .vuejx__header+div.hd__screen,
+        body .lien_he .vuejx__header+div>.hd__screen {
+            min-height: calc(100vh - 160px) !important;
+        }
+    
+        .lien_he .footer-normal,
+        .footer-contact {
+            display: none;
+        }
+    
+        .lien_he .footer-contact {
+            display: block;
+        }
+    
+        .contact-wrapper .contact-content {
+            border: 1px solid #0081fc;
+        }
+    
+        .contact-wrapper .left-side {
+            flex-grow: 1;
+        }
+    
+        .contact-wrapper .map-wrapper {
+            position: relative;
+            flex-shrink: 0;
+        }
+    
+        .contact-wrapper .map-wrapper iframe {
+            width: 500px !important;
+        }
+    
+        footer svg,
+        .contact-wrapper svg {
+            margin-top: 4px;
+        }
+    
+        .toggle-mobile {
+            display: block;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+            z-index: 5;
+        }
+    
+        .box-with-title label {
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    
+        .box-with-title label:before {
+            top: 23px;
+            height: 2px;
+        }
+    
+        .giatricotloi {
+            grid-column-start: 3;
+        }
+    
+        .mBody.san_pham>section {
+            padding: 0 1rem;
+        }
+    
+        .filtered-img {
+            filter: brightness(0) saturate(100%) invert(18%) sepia(96%) saturate(2628%) hue-rotate(198deg) brightness(83%) contrast(93%);
+        }
+    
+        .product-2 .col-span-1 {
+            margin: 1rem 0 0;
+        }
+    
+        .product-2 .col-span-1:nth-child(n + 4) {
+            margin: 0;
+        }
+    
+        .product-2 .linebreak {
+            margin-top: 1rem;
+        }
+    
+        body .navigation-auto,
+        body .navigation-manual {
+            left: 50%;
+            transform: translateX(-50%);
+            top: auto;
+            bottom: 1rem;
+        }
+    
+        .label-title:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 100%;
+            width: 0;
+            height: 0;
+            border-bottom: 38px solid #0081fc;
+            border-right: 28px solid transparent;
+        }
+    
+        .h2 {
+            margin-top: 5rem;
+        }
+    
+        @media screen and (max-width: 1366px) {
+            .giatricotloi {
+                margin-top: 1rem;
+            }
+    
+            .box-with-title label:before {
+                top: 16px;
+            }
+        }
+    
+        @media screen and (max-width: 1280px) {
+            .gioi_thieu .first-row .absolute {
+                width: 80%;
+            }
+        }
+    
+        @media screen and (max-width: 1024px) {
+            .contact-content {
+                width: 100%;
+            }
+    
+            #app>div:not(.trang_chu) .nav-button {
+                border-color: #207c97;
+                margin-left: 1rem;
+            }
+    
+            #app>div:not(.trang_chu) .nav-button svg path {
+                fill: #207c97;
+            }
+    
+            body .trang_chu header.hd__screen #navToggle .text-white {
+                color: #207c97;
+            }
+    
+            .gioi_thieu .first-row .absolute .uppercase {
+                display: none;
+            }
+        }
+    
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            .first-row .absolute {
+                display: block;
+            }
+    
+            .product-1_1>div {
+                padding: 0 1rem;
+            }
+    
+            .product-1_1>div>img {
+                margin-top: 1rem;
+            }
+    
+            .product-1_1 br {
+                display: none;
+            }
+    
+            .product-1_1 .grid-cols-3 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin: 2rem 0 0;
+                gap: 1rem;
+            }
+    
+            .product-1_1 .grid-cols-3 .col-span-1:nth-child(n + 3) {
+                margin-top: 1rem;
+            }
+    
+            .product-1_1 .grid-cols-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin: 0 0 0;
+                gap: 1rem;
+            }
+    
+            .product-2 .grid-cols-3,
+            .product-3 .grid-cols-3 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin: 0 0 0;
+                gap: 1rem;
+            }
+    
+            .product-2>div {
+                padding: 0 1rem;
+            }
+    
+            .product-2 .col-span-1:nth-child(n + 3),
+            .product-3 .col-span-1:nth-child(n + 3) {
+                margin: 0;
+            }
+    
+            .product-3>div {
+                padding: 0 1rem 20rem;
+            }
+        }
+    
+        @media screen and (max-width: 768px) {
+            .contact-content {
+                flex-wrap: wrap;
+            }
+    
+            .contact-wrapper .map-wrapper,
+            .contact-wrapper .map-wrapper iframe {
+                width: 100% !important;
+            }
+    
+            body .lien_he .vuejx__header+div.hd__screen,
+            body .lien_he .vuejx__header+div>.hd__screen {
+                min-height: calc(100vh - 147px) !important;
+            }
+    
+            .lien_he #body___container>section {
+                padding-bottom: 0;
+            }
+    
+            .lien_he .h2 {
+                margin: 1rem auto;
+            }
+    
+            .grid-cols-12 {
+                margin-top: 3rem;
+            }
+    
+            .grid-cols-12>div {
+                grid-column: span 12;
+                margin-top: 1rem;
+                padding: 1.5rem 1rem 1rem;
+                text-align: justify;
+            }
+    
+            .grid-cols-12>div:first-child {
+                margin-top: 0;
+            }
+    
+            .first-row {
+                display: none;
+            }
+    
+            .vuejx__header {
+                box-shadow: 0px 0px 5px rgb(0 0 0 / 30%);
+            }
+    
+            .box-with-title label {
+                font-size: 20px;
+                white-space: nowrap;
+            }
+    
+            .box-with-title label:before {
+                top: 15px;
+                height: 3px;
+            }
+    
+            body #body___container {
+                padding-bottom: 0;
+            }
+    
+            body .trang_chu #body___container {
+                padding-bottom: 2rem;
+            }
+        }
+    
+        @media screen and (max-width: 767px) {
+            .product-1_1>div {
+                padding: 0 1rem;
+            }
+    
+            .product-1_1>div>img {
+                margin-top: 1rem;
+            }
+    
+            .product-1_1 br {
+                display: none;
+            }
+    
+            .product-1_1 .grid-cols-3 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                margin: 2rem 0 0;
+                gap: 1rem;
+            }
+    
+            .product-1_1 .grid-cols-3 .col-span-1:nth-child(n + 3) {
+                margin-top: 1rem;
+            }
+    
+            .product-1_1 .grid-cols-4 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                margin: 0 0 0;
+                gap: 1rem;
+            }
+    
+            .product-2 .grid-cols-3,
+            .product-3 .grid-cols-3 {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+                margin: 0 0 0;
+                gap: 1rem;
+            }
+    
+            .product-2>div {
+                padding: 0 1rem;
+            }
+    
+            .product-2 .col-span-1:nth-child(n + 3),
+            .product-3 .col-span-1:nth-child(n + 3) {
+                margin: 0;
+            }
+    
+            .product-3>div {
+                padding: 0 1rem 20rem;
+            }
+    
+            .side-nav {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
 <header class="hd__screen bg-white z-10 top-0 w-full">
     <div>
         <div class="flex items-center ">
-            <a href="http://127.0.0.1/lenus_page/html/public_html/homePage.html" class="flex items-center"><img
-                    src="/lenus_page/html/public_html/child_pages/Công ty Cổ phần Lenus_files/Logo_-_Avatar-removebg-preview (5).png"
+            <a href="http://127.0.0.1/lenus_page/html/public_html/index.html" target="_blank"
+                class="flex items-center"><img
+                    src="\lenus_page\html\public_html\child_pages\Công ty Cổ phần Lenus_files\Logo_-_Avatar-removebg-preview (5).png"
                     class="img-responsive" alt="lenus" /><label class="ml-3 uppercase leading-4 text-lenus"><span
                         class="block font-bold">CÔNG TY CỔ PHẦN LENUS VIỆT NAM</span>
                     LENUS VIET NAM JOINT STOCK COMPANY
                 </label></a>
-                
+
             <div class="ml-auto relative" id="myNav">
                 <div class="nav-button">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,27 +349,28 @@
                 </div>
                 <ul id="navToggle" class="flex navbar">
                     <li>
-                        <a href="http://127.0.0.1/lenus_page/html/public_html/homePage.html"
+                        <a id="home" href="http://127.0.0.1/lenus_page/html/public_html/index.html" target="_blank"
                             class="border-transparent block text-lenus uppercase px-6 py-2 rounded-full border hover:border-lenus">Trang
                             chủ</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/intro.html"
+                        <a id="intro" href="http://127.0.0.1/lenus_page/html/public_html/child_pages/intro.html"
+                            target="_blank"
                             class="border-transparent block text-lenus uppercase px-6 py-2 rounded-full border hover:border-lenus">Giới
                             thiệu</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/product.html"
+                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/product.html" target="_blank"
                             class="border-transparent block text-lenus uppercase px-6 py-2 rounded-full border hover:border-lenus">Sản
                             phẩm</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/news.html"
+                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/news.html" target="_blank"
                             class="border-transparent block text-lenus uppercase px-6 py-2 rounded-full border hover:border-lenus">Tin
                             tức & sự kiện</a>
                     </li>
                     <li>
-                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/contact.html"
+                        <a href="http://127.0.0.1/lenus_page/html/public_html/child_pages/contact.html" target="_blank"
                             class="border-transparent block text-lenus uppercase px-6 py-2 rounded-full border hover:border-lenus">Liên
                             hệ</a>
                     </li>
@@ -44,4 +378,84 @@
             </div>
         </div>
     </div>
+              <div>
+            <style type="text/css">
+              /*----- Init Css -----*/
+              .side_nav {
+                display: none;
+              }
+
+              /*----- Genreral Css -----*/
+              body .hd__screen.p-4 {
+                background-size: cover;
+                background-color: rgba(1, 64, 34, 0.7) !important;
+              }
+
+              /*----- Header -----*/
+              .navbar-brand span {
+                color: #0a8203;
+                font-size: 14px;
+              }
+              .navbar-brand img {
+                height: 28px;
+                margin: 0 !important;
+              }
+
+              /*----- Footer -----*/
+              body .page-footer {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                background-color: #02672d;
+                color: white;
+                position: relative;
+                width: 100%;
+                font-size: 14px;
+                background-size: cover;
+              }
+              body .sitename {
+                background-color: #163255;
+                color: white;
+                padding: 10px 0;
+                text-transform: uppercase;
+                font-weight: bold;
+              }
+              body .page-footer .owner {
+                font-weight: bold;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+              }
+              body .page-footer p {
+                line-height: 20px;
+              }
+
+              @media screen and (min-width: 768px) {
+                body .page-footer .sm6:last-child {
+                  margin-top: -2px;
+                }
+              }
+
+              /*----- Content -----*/
+              .main-title {
+              }
+              .bg-green-transparent {
+                background-color: rgba(1, 64, 34, 0.7);
+              }
+
+              table.bg-white,
+              table tbody.bg-white {
+                background-color: transparent;
+              }
+              .vuejx__table.border__table {
+                border: 0 !important;
+              }
+              table.bg-white,
+              table.bg-white * {
+                border: 0 !important;
+                color: rgb(10, 10, 10) !important;
+              }
+            </style>
+          </div>
 </header>
+<script src="./headerload.js"></script>
+</body>
+</html>
